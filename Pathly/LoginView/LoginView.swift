@@ -13,6 +13,7 @@ class LoginView: UIView {
     var passwordField: UITextField!
     var loginButton: UIButton!
     var signUpButton: UIButton!
+    var logoImage: UIImageView!
 
     
     override init(frame: CGRect) {
@@ -25,9 +26,18 @@ class LoginView: UIView {
         setupPasswordField()
         setupLoginButton()
         setupSignUpButton()
+        setupLogoImage()
         
         initConstraints()
         
+    }
+    
+    func setupLogoImage() {
+        logoImage = UIImageView()
+        logoImage.image = UIImage(named: "Logo")
+        logoImage.contentMode = .scaleAspectFit
+        logoImage.translatesAutoresizingMaskIntoConstraints = false
+        contentWrapper.addSubview(logoImage)
     }
     
     func setupLoginButton() {
@@ -82,7 +92,12 @@ class LoginView: UIView {
             contentWrapper.widthAnchor.constraint(equalTo:self.safeAreaLayoutGuide.widthAnchor),
             contentWrapper.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
             
-            emailField.topAnchor.constraint(equalTo: contentWrapper.topAnchor, constant: 32),
+            logoImage.topAnchor.constraint(equalTo: contentWrapper.topAnchor, constant: 32),
+            logoImage.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            logoImage.heightAnchor.constraint(equalToConstant: 200),
+            logoImage.widthAnchor.constraint(equalToConstant: 200),
+            
+            emailField.topAnchor.constraint(equalTo: self.logoImage.bottomAnchor, constant: 32),
             emailField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             emailField.widthAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.widthAnchor),
             emailField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),

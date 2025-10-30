@@ -18,7 +18,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Log In"
+        self.navigationItem.title = "Dashboard"
     }
 
 }
