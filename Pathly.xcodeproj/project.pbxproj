@@ -13,6 +13,7 @@
 		E487D32E2EB402390027D829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487D32D2EB402390027D829 /* LoginViewController.swift */; };
 		E487D3332EB4023C0027D829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E487D3322EB4023C0027D829 /* Assets.xcassets */; };
 		E487D33F2EB407930027D829 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487D33E2EB407930027D829 /* LoginView.swift */; };
+		E487D34C2EB40B9C0027D829 /* Dashboard View in Resources */ = {isa = PBXBuildFile; fileRef = E487D34B2EB40B9C0027D829 /* Dashboard View */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E487D3322EB4023C0027D829 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E487D3372EB4023C0027D829 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E487D33E2EB407930027D829 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E487D34B2EB40B9C0027D829 /* Dashboard View */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Dashboard View"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				E487D3292EB402390027D829 /* AppDelegate.swift */,
 				E487D32B2EB402390027D829 /* SceneDelegate.swift */,
+				E487D34B2EB40B9C0027D829 /* Dashboard View */,
 				E487D33D2EB407720027D829 /* LoginView */,
 				E487D3322EB4023C0027D829 /* Assets.xcassets */,
 				E487D3372EB4023C0027D829 /* Info.plist */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E487D3332EB4023C0027D829 /* Assets.xcassets in Resources */,
+				E487D34C2EB40B9C0027D829 /* Dashboard View in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
