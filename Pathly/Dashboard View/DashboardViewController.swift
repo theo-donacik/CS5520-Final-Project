@@ -1,19 +1,18 @@
 //
-//  LoginViewController.swift
+//  DashboardViewController.swift
 //  Pathly
 //
 //  Created by theo on 10/30/25.
 //
-//
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class DashboardViewController: UIViewController {
     
-    let loginView = LoginView()
-    
+    let dashboardView = DashboardView()
+
     override func loadView() {
-        view = loginView
+        view = dashboardView
     }
     
     override func viewDidLoad() {
@@ -21,5 +20,5 @@ class LoginViewController: UIViewController {
         
         self.navigationItem.title = "Log In"
     }
-}
 
+}
