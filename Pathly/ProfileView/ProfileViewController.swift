@@ -1,0 +1,20 @@
+//
+//  ProfileViewController.swift
+//  Pathly
+//
+//  Created by Namya Singh on 10/30/25.
+//
+
+import UIKit
+
+class ProfileViewController: UIView {
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+
+}
