@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99BBE44E2EB4085D00C14AEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 99BBE44D2EB4085D00C14AEB /* Alamofire */; };
 		E487D32A2EB402390027D829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487D3292EB402390027D829 /* AppDelegate.swift */; };
 		E487D32C2EB402390027D829 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487D32B2EB402390027D829 /* SceneDelegate.swift */; };
 		E487D32E2EB402390027D829 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E487D32D2EB402390027D829 /* LoginViewController.swift */; };
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BBE44E2EB4085D00C14AEB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,9 @@
 				Base,
 			);
 			mainGroup = E487D31D2EB402390027D829;
+			packageReferences = (
+				99BBE44C2EB4085D00C14AEB /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E487D3272EB402390027D829 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -348,6 +353,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99BBE44C2EB4085D00C14AEB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99BBE44D2EB4085D00C14AEB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99BBE44C2EB4085D00C14AEB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E487D31E2EB402390027D829 /* Project object */;
 }
