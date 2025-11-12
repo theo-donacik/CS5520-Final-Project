@@ -20,6 +20,15 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Log In"
+        
+        loginView.loginButton.addTarget(self, action: #selector(onLoginButtonPressed), for: .touchUpInside)
+
+        
+    }
+    
+    @objc func onLoginButtonPressed() {
+        let dashboardController = CourseViewController()
+        self.navigationController?.pushViewController(dashboardController, animated: true)
     }
 }
 
