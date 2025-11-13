@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         self.navigationItem.title = "Log In"
         
         loginView.loginButton.addTarget(self, action: #selector(onLoginButtonPressed), for: .touchUpInside)
+        loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonPressed), for: .touchUpInside)
 
         
     }
@@ -29,6 +30,11 @@ class LoginViewController: UIViewController {
     @objc func onLoginButtonPressed() {
         let dashboardController = CourseViewController()
         self.navigationController?.pushViewController(dashboardController, animated: true)
+    }
+    
+    @objc func onSignUpButtonPressed() {
+        let signInController = SignInViewController()
+        self.navigationController?.pushViewController(signInController, animated: true)
     }
 }
 

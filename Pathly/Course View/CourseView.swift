@@ -26,7 +26,6 @@ class CourseView: UIView {
         initConstraints()
     }
     
-    //MARK: the table view to show the list of contacts...
     func setupTableViewAssignments(){
         tableViewAssignments = UITableView()
         tableViewAssignments.register(AssignmentTableViewCell.self, forCellReuseIdentifier: "assignments")
@@ -34,7 +33,6 @@ class CourseView: UIView {
         self.addSubview(tableViewAssignments)
     }
     
-    //MARK: the bottom add contact view....
     func setupButtonGroupView(){
         buttonGroupView = UIView()
         buttonGroupView.backgroundColor = .white

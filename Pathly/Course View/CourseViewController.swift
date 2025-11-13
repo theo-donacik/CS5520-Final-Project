@@ -31,9 +31,17 @@ class CourseViewController: UIViewController {
             Assignment(title: "A3", description: "A33333", due: Date()),
         ]
         self.courseView.tableViewAssignments.reloadData()
+        
+        courseView.QnAButton.addTarget(self, action: #selector(onQnAButtonPressed), for: .touchUpInside)
     }
     
+    
+    @objc func onQnAButtonPressed() {
+        let qnaController = QnAViewController()
+        self.navigationController?.pushViewController(qnaController, animated: true)
+    }
 }
+
 
 extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
