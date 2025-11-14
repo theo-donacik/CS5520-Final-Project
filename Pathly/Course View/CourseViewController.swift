@@ -11,6 +11,8 @@ class CourseViewController: UIViewController {
     let courseView = CourseView()
     
     var assignments = [Assignment]()
+    
+    var isInstructor = true
 
     override func loadView() {
         view = courseView
@@ -33,12 +35,31 @@ class CourseViewController: UIViewController {
         self.courseView.tableViewAssignments.reloadData()
         
         courseView.QnAButton.addTarget(self, action: #selector(onQnAButtonPressed), for: .touchUpInside)
+        courseView.groupsButton.addTarget(self, action: #selector(onGroupButtonPressed), for: .touchUpInside)
+        
+        if(isInstructor) {
+            courseView.addAssignmnetButton.addTarget(self, action: #selector(onNewCourseButtonPressed), for: .touchUpInside)
+        }
+        else {
+            courseView.addAssignmnetButton.isHidden = true
+        }
+
     }
     
     
     @objc func onQnAButtonPressed() {
         let qnaController = QnAViewController()
         self.navigationController?.pushViewController(qnaController, animated: true)
+    }
+    
+    @objc func onGroupButtonPressed() {
+        let groupController = GroupsViewController()
+        self.navigationController?.pushViewController(groupController, animated: true)
+    }
+    
+    @objc func onNewCourseButtonPressed() {
+//        let groupController = GroupsViewController()
+//        self.navigationController?.pushViewController(groupController, animated: true)
     }
 }
 
@@ -56,8 +77,28 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.titleField.text = assignments[indexPath.row].title
         cell.dueDateField.text =  "Due " + dateFormatter.string(from: assignments[indexPath.row].due)
+        
+        if(isInstructor) {
+            let deleteButton = UIButton(type: .system)
+            deleteButton.showsMenuAsPrimaryAction = true
+            deleteButton.sizeToFit()
+            deleteButton.setImage(UIImage(systemName: "slider.horizontal.3"), for: .normal)
+            //MARK: setting up menu for button options click...
+            deleteButton.menu = UIMenu(title: "Delete Assignmnet?",
+                                        children: [
+                                            UIAction(title: "Delete",handler: {(_) in
+                                                self.onDeleteButtonPressed(id: self.assignments[indexPath.row].title)
+                                            })
+                                        ])
+            //MARK: setting the button as an accessory of the cell...
+            cell.accessoryView = deleteButton
+        }
 
         return cell
+    }
+    
+    @objc func onDeleteButtonPressed(id: String) {
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

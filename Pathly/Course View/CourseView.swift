@@ -13,6 +13,7 @@ class CourseView: UIView {
     var buttonGroupView: UIView!
     var QnAButton: UIButton!
     var groupsButton: UIButton!
+    var addAssignmnetButton: UIButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +23,7 @@ class CourseView: UIView {
         setupButtonGroupView()
         setupGroupsButton()
         setupQnAButton()
+        setupAddAssignmnetButton()
         
         initConstraints()
     }
@@ -56,6 +58,14 @@ class CourseView: UIView {
         buttonGroupView.addSubview(groupsButton)
     }
     
+    func setupAddAssignmnetButton(){
+        addAssignmnetButton = UIButton(type: .system)
+        addAssignmnetButton.titleLabel?.font = .systemFont(ofSize: 16)
+        addAssignmnetButton.setTitle("New Assignment", for: .normal)
+        addAssignmnetButton.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(addAssignmnetButton)
+    }
+    
     func initConstraints(){
         NSLayoutConstraint.activate([
             buttonGroupView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,constant: 8),
@@ -73,7 +83,11 @@ class CourseView: UIView {
             tableViewAssignments.topAnchor.constraint(equalTo: buttonGroupView.bottomAnchor, constant: 8),
             tableViewAssignments.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             tableViewAssignments.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            tableViewAssignments.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            tableViewAssignments.bottomAnchor.constraint(equalTo: addAssignmnetButton.topAnchor, constant: -16),
+            
+            addAssignmnetButton.topAnchor.constraint(equalTo: tableViewAssignments.bottomAnchor, constant: 16),
+            addAssignmnetButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            addAssignmnetButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
         ])
     }

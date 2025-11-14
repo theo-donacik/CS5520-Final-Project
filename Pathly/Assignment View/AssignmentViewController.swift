@@ -13,6 +13,8 @@ class AssignmentViewController: UIViewController {
     
     var currentAssignmnet: Assignment?
     
+    var isInstructor = false
+    
     override func loadView() {
         view = assignmentView
         
@@ -62,6 +64,10 @@ class AssignmentViewController: UIViewController {
         
         self.assignmentView.dueDateField.text = "Due " + dateFormatter.string(from: (currentAssignmnet?.due)!)
         self.assignmentView.descriptionField.text = currentAssignmnet?.description
+        
+        if(isInstructor) {
+            assignmentView.uploadButton.isHidden = true
+        }
     }
 
 }
