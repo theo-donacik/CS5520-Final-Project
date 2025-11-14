@@ -58,8 +58,8 @@ class CourseViewController: UIViewController {
     }
     
     @objc func onNewCourseButtonPressed() {
-//        let groupController = GroupsViewController()
-//        self.navigationController?.pushViewController(groupController, animated: true)
+        let newAssignmentController = CreateAssignmentViewController()
+        self.navigationController?.pushViewController(newAssignmentController, animated: true)
     }
 }
 

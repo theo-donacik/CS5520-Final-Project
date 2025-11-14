@@ -31,6 +31,13 @@ class GroupsViewController: UIViewController {
             Group(name: "Group 3", location: "New York, NY", members: ["User1", "User2", "User3"])
         ]
         self.groupView.tableViewGroups.reloadData()
+        
+        groupView.newGroupButton.addTarget(self, action: #selector(onNewGroupButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func onNewGroupButtonTapped() {
+        let newGroupController = CreateGroupViewController()
+        self.navigationController?.pushViewController(newGroupController, animated: true)
     }
     
 }

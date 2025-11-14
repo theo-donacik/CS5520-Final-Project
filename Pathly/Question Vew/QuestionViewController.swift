@@ -34,6 +34,12 @@ class QuestionViewController: UIViewController {
         replies = (currentQuestion?.replies)!
         
         self.questionView.tableViewReplies.reloadData()
+        self.questionView.newReplyButton.addTarget(self, action: #selector(onReplyButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func onReplyButtonPressed() {
+        let replyView = CreateReplyViewController()
+        self.navigationController?.pushViewController(replyView, animated: true)
     }
     
 }

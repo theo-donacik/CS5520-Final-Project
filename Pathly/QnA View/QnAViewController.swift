@@ -30,6 +30,13 @@ class QnAViewController: UIViewController {
             Question(title: "Q2", description: "Q2 desc", askedBy: "User21", replies: ["r3", "r4"]),
         ]
         self.qnaView.tableViewQuestions.reloadData()
+        
+        self.qnaView.newQuestionButton.addTarget(self, action: #selector(onAskButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func onAskButtonPressed() {
+        let createView = CreateQuestionViewController()
+        self.navigationController?.pushViewController(createView, animated: true)
     }
     
 }
