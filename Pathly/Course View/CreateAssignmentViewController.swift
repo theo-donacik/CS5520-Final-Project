@@ -10,7 +10,6 @@ import UIKit
 class CreateAssignmentViewController: UIViewController {
     let newAssignmentView = CreateAssignmentView()
 
-
     override func loadView() {
         view = newAssignmentView
     }

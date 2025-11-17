@@ -23,13 +23,31 @@ class LoginViewController: UIViewController {
         
         loginView.loginButton.addTarget(self, action: #selector(onLoginButtonPressed), for: .touchUpInside)
         loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonPressed), for: .touchUpInside)
-
-        
     }
     
     @objc func onLoginButtonPressed() {
-        let dashboardController = CourseViewController()
-        self.navigationController?.pushViewController(dashboardController, animated: true)
+        
+        let username = loginView.emailField.text
+        let password = loginView.passwordField.text
+        
+        if (username!.isEmpty || password!.isEmpty) {
+            print("Username or password empty")
+            return
+        }
+
+
+        let loggedUser = User(
+            username: username!,
+            firstName: "Namya",
+            lastName: "Singh",
+            dob: "01/01/2000",
+            email: "\(username!)@gmail.com",
+            userType: "Instructor"
+        )
+        
+        let vc = CoursesListViewController()
+        vc.currentUser = loggedUser
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func onSignUpButtonPressed() {
