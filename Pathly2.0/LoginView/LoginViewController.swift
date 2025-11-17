@@ -21,46 +21,38 @@ class LoginViewController: UIViewController {
         
         self.navigationItem.title = "Log In"
         
-       
         loginView.loginButton.addTarget(self, action: #selector(onLoginButtonPressed), for: .touchUpInside)
-        
-        
         loginView.signUpButton.addTarget(self, action: #selector(onSignUpButtonPressed), for: .touchUpInside)
     }
     
-
     @objc func onLoginButtonPressed() {
-
-        guard let username = loginView.emailField.text,
-
-              let password = loginView.passwordField.text,
-              !username.isEmpty, !password.isEmpty else {
+        
+        let username = loginView.emailField.text
+        let password = loginView.passwordField.text
+        
+        if (username!.isEmpty || password!.isEmpty) {
             print("Username or password empty")
             return
         }
 
-        
 
         let loggedUser = User(
-            username: username,
+            username: username!,
             firstName: "Namya",
             lastName: "Singh",
             dob: "01/01/2000",
-            email: "\(username)@gmail.com",
+            email: "\(username!)@gmail.com",
             userType: "Instructor"
         )
-
-        // Store the ACTUAL logged in user
-        UserSession.shared.currentUser = loggedUser
-
+        
         let vc = CoursesListViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.currentUser = loggedUser
+        navigationController?.pushViewController(vc, animated: true)
     }
-
-
-
+    
     @objc func onSignUpButtonPressed() {
-        let signInVC = SignInViewController()
-        self.navigationController?.pushViewController(signInVC, animated: true)
+        let signInController = SignInViewController()
+        self.navigationController?.pushViewController(signInController, animated: true)
     }
 }
+

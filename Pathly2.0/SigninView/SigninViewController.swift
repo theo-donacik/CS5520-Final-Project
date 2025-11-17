@@ -110,16 +110,13 @@ class SignInViewController: UIViewController {
             userType: selectedUserType
         )
 
-        UserSession.shared.currentUser = newUser
 
-        navigateToDashboard()
-    }
-
-    func navigateToDashboard() {
         let vc = CoursesListViewController()
+        vc.currentUser = newUser
         navigationController?.pushViewController(vc, animated: true)
     }
 
+    
     
     func showAlert(_ message: String) {
         let alert = UIAlertController(

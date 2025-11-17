@@ -1,4 +1,7 @@
 .DS_Store
+Pathly2.0Tests
+Pathly2.0UITests
+
 # Xcode
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore

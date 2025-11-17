@@ -12,9 +12,7 @@ class CoursesListViewController: UIViewController {
     let coursesListView = CoursesListView()
     var courses = [Course]()
     
-    var user: User {
-        return UserSession.shared.currentUser!
-    }
+    var currentUser: User?
 
     override func loadView() {
         view = coursesListView
@@ -35,7 +33,7 @@ class CoursesListViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = profileBtn
         
         // ⭐ ADD COURSE BUTTON — ONLY FOR INSTRUCTOR
-        if user.isInstructor {
+        if currentUser!.isInstructor {
             let addBtn = UIBarButtonItem(
                 barButtonSystemItem: .add,
                 target: self,
@@ -60,7 +58,8 @@ class CoursesListViewController: UIViewController {
 
     // MARK: - PROFILE
     @objc func openProfile() {
-        let profileVC = ProfileViewController(user: user)
+        let profileVC = ProfileViewController()
+        profileVC.currentUser = currentUser!
         navigationController?.pushViewController(profileVC, animated: true)
     }
 
@@ -121,7 +120,7 @@ extension CoursesListViewController: UITableViewDelegate, UITableViewDataSource,
         cell.instructorField.text = "Instructor: \(course.instructor)"
 
         // SHOW DELETE ONLY FOR INSTRUCTOR
-        cell.deleteButton.isHidden = !user.isInstructor
+        cell.deleteButton.isHidden = !(currentUser!.isInstructor)
         
         cell.delegate = self
         

@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Pathly2.0
+//  Pathly
 //
-//  Created by Namya Singh on 11/13/25.
+//  Created by theo on 10/30/25.
 //
 
 import UIKit
