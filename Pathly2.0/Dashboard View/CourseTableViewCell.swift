@@ -1,8 +1,8 @@
-////
-////  CourseTableViewCell.swift
-////  Pathly
-////
-////  Created by theo on 10/30/25.
+//
+//  CourseTableViewCell.swift
+//  Pathly
+//
+//  Created by theo on 10/30/25.
 
 import UIKit
 
@@ -109,3 +109,7 @@ class CourseTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+
+

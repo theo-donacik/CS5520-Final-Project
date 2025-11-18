@@ -21,14 +21,14 @@ class SignInViewController: UIViewController {
         
         self.navigationItem.title = "Sign In"
         
-        // Sign In button
+        
         signInView.signInButton.addTarget(self, action: #selector(onSignInButtonTapped), for: .touchUpInside)
         
-        // User type selection button
+        
         signInView.userTypeButton.addTarget(self, action: #selector(onUserTypeButtonTapped), for: .touchUpInside)
     }
     
-    // MARK: - User Type Selection
+   
     @objc func onUserTypeButtonTapped() {
         let alert = UIAlertController(title: "Select User Type", message: nil, preferredStyle: .actionSheet)
         
@@ -47,7 +47,7 @@ class SignInViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
-    // MARK: - Sign In
+   
     @objc func onSignInButtonTapped() {
         
         guard let username = signInView.usernameField.text, !username.isEmpty else {
@@ -100,7 +100,7 @@ class SignInViewController: UIViewController {
             return
         }
 
-        // ✅ Save user in session
+       
         let newUser = User(
             username: username,
             firstName: firstName,

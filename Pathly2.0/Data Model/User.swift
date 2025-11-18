@@ -13,7 +13,7 @@ struct User {
     let lastName: String
     let dob: String
     let email: String
-    let userType: String       // "Student" or "Instructor"
+    let userType: String       
 
     var isInstructor: Bool {
         return userType == "Instructor"

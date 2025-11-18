@@ -23,7 +23,7 @@ class CoursesListViewController: UIViewController {
         
         self.navigationItem.title = "My Courses"
 
-        // ⭐ PROFILE BUTTON
+       
         let profileBtn = UIBarButtonItem(
             image: UIImage(systemName: "person.circle"),
             style: .plain,
@@ -32,7 +32,7 @@ class CoursesListViewController: UIViewController {
         )
         self.navigationItem.leftBarButtonItem = profileBtn
         
-        // ⭐ ADD COURSE BUTTON — ONLY FOR INSTRUCTOR
+       
         if currentUser!.isInstructor {
             let addBtn = UIBarButtonItem(
                 barButtonSystemItem: .add,
@@ -42,12 +42,12 @@ class CoursesListViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = addBtn
         }
 
-        // TABLE
+        
         coursesListView.tableViewCourses.dataSource = self
         coursesListView.tableViewCourses.delegate = self
         coursesListView.tableViewCourses.separatorStyle = .none
 
-        // MOCK DATA
+        
         courses = [
             Course(name: "Introduction to CS", code: "CS101", instructor: "Dr. Smith", semester: "Fall 2025"),
             Course(name: "Algorithms", code: "CS201", instructor: "Prof. Johnson", semester: "Fall 2025")
@@ -56,14 +56,14 @@ class CoursesListViewController: UIViewController {
         coursesListView.tableViewCourses.reloadData()
     }
 
-    // MARK: - PROFILE
+    
     @objc func openProfile() {
         let profileVC = ProfileViewController()
         profileVC.currentUser = currentUser!
         navigationController?.pushViewController(profileVC, animated: true)
     }
 
-    // MARK: - ADD COURSE ALERT
+   
     @objc func showAddCoursePopup() {
         let alert = UIAlertController(title: "Add New Course", message: nil, preferredStyle: .alert)
         
@@ -102,7 +102,7 @@ class CoursesListViewController: UIViewController {
 }
 
 
-// MARK: - TABLE
+
 extension CoursesListViewController: UITableViewDelegate, UITableViewDataSource, CourseTableViewCellDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,7 +119,7 @@ extension CoursesListViewController: UITableViewDelegate, UITableViewDataSource,
         cell.courseCodeField.text = course.code
         cell.instructorField.text = "Instructor: \(course.instructor)"
 
-        // SHOW DELETE ONLY FOR INSTRUCTOR
+        
         cell.deleteButton.isHidden = !(currentUser!.isInstructor)
         
         cell.delegate = self
@@ -127,7 +127,7 @@ extension CoursesListViewController: UITableViewDelegate, UITableViewDataSource,
         return cell
     }
 
-    // 🌟 DELETE COURSE HANDLER
+  
     func didTapDelete(on cell: CourseTableViewCell) {
         guard let indexPath = coursesListView.tableViewCourses.indexPath(for: cell) else { return }
 
